@@ -57,7 +57,7 @@ class WebSocketProtocol(HttpProtocol):
 
     async def websocket_handshake(self, request, subprotocols=None):
         # let the websockets package do the handshake with the client
-        headers = []
+        headers = {}
 
         def get_header(k):
             return request.headers.get(k, '')
