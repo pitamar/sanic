@@ -66,8 +66,8 @@ class WebSocketProtocol(HttpProtocol):
             headers.append((k, v))
 
         try:
-            key = handshake.check_request(get_header)
-            handshake.build_response(set_header, key)
+            key = handshake.check_request(request.headers)
+            handshake.build_response(headers, key)
         except InvalidHandshake:
             raise InvalidUsage('Invalid websocket request')
 
