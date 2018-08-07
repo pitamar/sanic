@@ -84,7 +84,7 @@ class WebSocketProtocol(HttpProtocol):
 
         # write the 101 response back to the client
         rv = b'HTTP/1.1 101 Switching Protocols\r\n'
-        for k, v in headers:
+        for k, v in headers.items():
             rv += k.encode('utf-8') + b': ' + v.encode('utf-8') + b'\r\n'
         rv += b'\r\n'
         request.transport.write(rv)
